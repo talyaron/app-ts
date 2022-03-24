@@ -3,7 +3,7 @@ const router = express.Router();
 import jwt from "jwt-simple";
 
 //controlers
-import { isAdmin, loginStatus } from "../controlers/login";
+import { loginStatus } from "../controlers/login";
 router
   .post("/login", async (req, res) => {
     //LOGIN
@@ -30,7 +30,7 @@ router
       res.send({ error: error.message });
     }
   })
-  .get("/privateInfo", isAdmin, (req, res) => {
+  .get("/privateInfo", (req, res) => {
     res.send({ ok: true, info: "my secrets" });
   });
 
