@@ -4,7 +4,7 @@ import Owners from './model/schema/ownerModel';
 const cookieParser = require('cookie-parser'); 
 const express = require("express");
 const app = express();
-const port = 4001;
+const port =  process.env.PORT || 4001;
 require("dotenv").config();
 
 //routes for data
