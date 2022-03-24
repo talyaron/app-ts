@@ -34,15 +34,17 @@ const db = mongoose.connection;
 
 async function main() {
   const password = process.env.MONGODB_PASSWORD;
-  await mongoose.connect(
+  mongoose.connect(
     `mongodb+srv://tal1:P5UtPssrXUrGvWxF@tal-test1.m39if.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
-  );
+  ).then(()=>{
+    console.log('connect to DB')
+  })
+  .catch(err=>{
+    console.log(err.message)
+  });
 }
 
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-  console.log("connected to DB!");
-});
+
 
 
 
